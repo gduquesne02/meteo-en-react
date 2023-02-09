@@ -1,16 +1,17 @@
 import * as React from "react";
 
-import  {TermsScreen}  from "./src/screens/TermsScreen";
 
 // or any pure javascript modules available in npm
 
-import { useState } from "react";
-import { StarshipFeedScreen } from "./src/screens/StarshipFeedScreen";
+import {Navigator} from "./src/navigation/Navigator"
+import { NavigationContainer } from "@react-navigation/native";
 
 const App = () => {
   return (
     // <LoginScreen />
-    <StarshipFeedScreen />
+    <NavigationContainer>
+      <Navigator/>
+    </NavigationContainer>
   );
 };
 
