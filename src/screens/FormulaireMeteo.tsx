@@ -14,27 +14,25 @@ import background from "../../assets/images/fond.jpg";
 export function LoginScreen({ navigation }) {
   const [value, setValue] = useState("");
 
-
   var datas = [];
   const handleSubmit = async () => {
     try {
-      if(value == null){
+      if (value == null) {
         goToErreur();
       }
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=3277f7578466bf8618dd937a8df3f1f2&units=metric`
-        
       );
       const responseWiki = await fetch(
-        `https://serpapi.com/search.json?q=${value}&tbm=isch&ijn=0&api_key=b9ea58de80489d6f22b9354fe1c3b035b82c42532c964f6fcb2a3d007024ccc9`        
+        `https://serpapi.com/search.json?q=${value}&tbm=isch&ijn=0&api_key=b9ea58de80489d6f22b9354fe1c3b035b82c42532c964f6fcb2a3d007024ccc9`
       );
       const data = await response.json();
       const dataImage = await responseWiki.json();
       if (data.name == null || dataImage == null) {
-        goToErreur()
+        goToErreur();
       } else {
-        datas.push(data)
-        datas.push(dataImage)
+        datas.push(data);
+        datas.push(dataImage);
         goToMeteo(datas);
       }
     } catch (error) {
@@ -75,7 +73,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    borderColor: 'white'
+    borderColor: "white",
   },
   input: {
     width: "80%",
@@ -84,7 +82,7 @@ const styles = StyleSheet.create({
     borderColor: "gray",
     padding: 10,
     marginBottom: 10,
-    backgroundColor: 'lightgray',
+    backgroundColor: "lightgray",
   },
   flex: {
     width: "80%",
@@ -96,7 +94,7 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    justifyContent: 'center',
-    backgroundAttachment: 'local',
+    justifyContent: "center",
+    backgroundAttachment: "local",
   },
 });
